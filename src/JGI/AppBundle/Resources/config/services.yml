@@ -1,0 +1,31 @@
+services:
+
+    email_sender:
+        class: JGI\AppBundle\Service\EmailSender
+        arguments:
+            - @mailer
+            - @templating
+            - %mailer_from%
+            - %mailer_recipients%
+
+    twig.app_extension:
+        class: JGI\AppBundle\Twig\AppExtension
+        tags:
+            - { name: twig.extension }
+
+    scraper:
+        class: JGI\AppBundle\Service\Scraper
+        arguments:
+            - @client
+
+    client:
+        class: Goutte\Client
+
+    command.check:
+        class: JGI\AppBundle\Command\CheckCommand
+        arguments:
+            - @email_sender
+            - @scraper
+            - %credentials%
+        tags:
+            - { name: console.command }
