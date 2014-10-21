@@ -63,8 +63,8 @@ class CheckCommand extends ContainerAwareCommand
             $users[] = $user;
         }
 
-        if ($minDaysLeft < 7) {
-            $output->writeln('Late books. Sending email');
+        if ($minDaysLeft < 7 || (new \DateTime())->format('N') == 1) {
+            $output->writeln('Sending email');
             $this->emailSender->sendEmail($users);
         } else {
             $output->writeln('No late books');
