@@ -39,8 +39,12 @@ class Scraper
 
         $books = $crawler->filter('#loans tbody tr')->each(function(Crawler $node) {
             $book = new Book();
-            $book->setTitle(trim($node->filter('td a')->text()));
-            $book->setAuthor(substr(trim($node->filter('td span.work-author')->text()), 4));
+            if ($node->filter('td a')->count()) {
+                $book->setTitle(trim($node->filter('td a')->text()));
+            }
+            if ($node->filter('td span.work-author')->count()) {
+                $book->setAuthor(substr(trim($node->filter('td span.work-author')->text()), 4));
+            }
             $book->setReturnDate(new \DateTime(trim($node->filter('td:nth-child(2)')->text())));
 
             return $book;
