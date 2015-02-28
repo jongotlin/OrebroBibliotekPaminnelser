@@ -72,6 +72,11 @@ class Book {
      */
     public function getDaysLeft()
     {
-        return $this->getReturnDate()->diff(new \DateTime())->format('%a');
+        $diff = $this->getReturnDate()->diff(new \DateTime())->format('%a');
+        if ($this->getReturnDate() < new \DateTime()) {
+            $diff = -$diff;
+        }
+
+        return $diff;
     }
 }
