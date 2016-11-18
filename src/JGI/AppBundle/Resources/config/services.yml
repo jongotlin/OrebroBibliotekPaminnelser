@@ -27,5 +27,12 @@ services:
             - @email_sender
             - @scraper
             - %credentials%
+            - @slackbot
         tags:
             - { name: console.command }
+
+    slackbot:
+        class: JGI\AppBundle\Service\SlackBot
+        arguments:
+            - @client
+            - %slackurl%

@@ -4,6 +4,7 @@ namespace JGI\AppBundle\Command;
 
 use JGI\AppBundle\Service\EmailSender;
 use JGI\AppBundle\Service\Scraper;
+use JGI\AppBundle\Service\SlackBot;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -26,15 +27,21 @@ class CheckCommand extends ContainerAwareCommand
     protected $credentials;
 
     /**
+     * @var SlackBot
+     */
+    protected $slackBot;
+
+    /**
      * @param EmailSender $emailSender
      * @param Scraper $scraper
      * @param array $credentials
      */
-    public function __construct(EmailSender $emailSender, Scraper $scraper, array $credentials)
+    public function __construct(EmailSender $emailSender, Scraper $scraper, array $credentials, SlackBot $slackBot)
     {
         $this->emailSender = $emailSender;
         $this->scraper = $scraper;
         $this->credentials = $credentials;
+        $this->slackBot = $slackBot;
 
         parent::__construct();
     }
@@ -64,8 +71,21 @@ class CheckCommand extends ContainerAwareCommand
         }
 
         if ($minDaysLeft < 7 || (new \DateTime())->format('N') == 1) {
-            $output->writeln('Sending email');
-            $this->emailSender->sendEmail($users);
+            try {
+                $output->writeln('Sending email');
+                $this->emailSender->sendEmail($users);
+            } catch (\Exception $e) {
+                $output->writeln(sprintf('Failed sending email: %s', $e->getMessage()));
+            }
+
+            try {
+                $output->writeln('Sending to Slack');
+                $this->slackBot->send($users);
+            } catch (\Exception $e) {
+                $output->writeln(sprintf('Failed sending to Slack: %s', $e->getMessage()));
+            }
+
+
         } else {
             $output->writeln('No late books');
         }

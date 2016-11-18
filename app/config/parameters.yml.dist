@@ -13,3 +13,4 @@ parameters:
     credentials:
          - [Jon, jongotlin, foobar]
          - [Malin, malingotlin, baz]
+    slackurl: https://hooks.slack.com/services/XXXXXXX/YYYYYYY/zzzzzzzzz
