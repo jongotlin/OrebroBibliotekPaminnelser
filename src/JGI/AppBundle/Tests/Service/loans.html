@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang='sv'>
+
+<head><base href="http://bibliotek.orebro.se" target="_self" /><title>
+    Mina lån - Örebro bibliotek
+</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" /><link rel="Shortcut Icon" href="/Admin/Delade%20resurser/Design/Bilder/favicon.ico" type="image/x-icon" /><link rel="Stylesheet" href="/Customer/Design/CSS/Main.less" type="text/css" /><link rel="Stylesheet" href="/Customer/Design/CSS/print.css" type="text/css" media="print" /><link rel="Stylesheet" href="/Customer/Design/CSS/jquery-ui-1.8.21.custom.less" type="text/css" />
+    <!--<link rel="stylesheet" href="/Admin/Delade resurser/Design/CSS/jquery.ui.stars.css" />-->
+    <!--[if lte IE 8]>
+    <link rel="Stylesheet" href="/Customer/Design/CSS/IE8.css" type="text/css" />
+    <![endif]-->
+    <script type="text/javascript" src="/Admin/Scripts/All.ashx"></script>
+
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/Globalization.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/jq_functions.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/Extensions.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/Classes.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/renew-loans.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/add-to-memorylist.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/reservation.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/jquery.MetaData.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/jquery.formToWizard.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/login.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/login.validateTokens.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/login.merge-memorylists.js"></script>
+    <script type="text/javascript" src="/Admin/Delade resurser/Script/touch-menu.js"></script>
+
+    <!--<script type="text/javascript" src="/Admin/Delade resurser/Script/search.settings.js"></script>   -->
+
+
+
+    <script type="text/javascript">
+        // <[!CDATA[
+        {
+            var expires = new Date();
+            expires.setDate(expires.getDate() + 1);
+            document.cookie = "SupportsJavascript=true;path=/;expires=" + expires.toUTCString();
+        }
+
+        CurrentUser = {
+            authenticated: true,
+            username: 'jongotlin',
+            userid: '499a6e94-2e96-4bb9-8d17-a38f007eae71'
+        };
+        // ]]>
+    </script>
+
+    <script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-54976488-1']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+
+    <script src="http://f1.eu.readspeaker.com/script/4332/ReadSpeaker.js?pids=embhl" type="text/javascript"></script>
+
+
+    <meta property="og:type" content="non_profit" />
+    <meta property="og:url" content="http://bibliotek.orebro.se/my-pages/loans" />
+
+
+
+    <meta property="og:site_name" content="&Ouml;rebro bibliotek" />
+
+    <script type="text/javascript" src="/WebResource.axd?d=dubgAcF6VVwnfDC1sZZAEIE_aw3TtuQ-ecB55pdSKNMTG6YZu_-FRrdP3X7oeMG6wlevRWEzpcfi2W2y3rEr1lo_EBI1&amp;t=635831549886182890">
+
+    </script><script type="text/javascript">
+        //<![CDATA[
+        function __doPostBack() {
+            var eventTarget, eventArgument, theForm;
+            if (arguments.length == 2) {
+                eventTarget = arguments[0];
+                eventArgument = arguments[1];
+                var obj = null;
+
+                var objs = document.getElementsByName(eventTarget);
+                var objsLength = objs.length;
+                if (objsLength > 0)
+                    obj = objs[0];
+
+                if (obj == null) {
+                    var eventTargetId = eventTarget.replace(/\$/g, '_');
+                    obj = document.getElementById(eventTargetId);
+                }
+
+                theForm = obj.parentNode;
+                while (theForm != null && theForm.nodeName.toLowerCase() != 'form')
+                    theForm = theForm.parentNode;
+            } else if (arguments.length == 3) {
+                theForm = document.getElementById(arguments[0]);
+                eventTarget = arguments[1];
+                eventArgument = arguments[2];
+            }
+
+            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                theForm.__EVENTTARGET.value = eventTarget;
+                theForm.__EVENTARGUMENT.value = eventArgument;
+                theForm.submit();
+            }
+        }
+        //]]>
+
+    </script></head>
+<body class="portal-14923 node-14924 node-14923 node-1721 pt-0">
+
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div id="function-menu">
+                <div class="navbar">
+                    <div class="container">
+                        <ul class="misc-menu nav">
+                            <li class="skip-to-content">
+                                <a accesskey="S" title="Hoppa &ouml;ver navigationen och g&aring; direkt till inneh&aring;llet. Snabbkommando: S." tabindex="1" href="#content-start">Till inneh&aring;llet</a>
+                            </li>
+                            <li class="accessability">
+                                <a id="ctl02_AccessabilityLink" accesskey="0" tabindex="1" title="L&auml;nk till information om anpassning av webbplats m.m. Snabbkommando: 0." href="accessibility">Tillg&auml;nglighet</a>
+                            </li>
+                            <li class="divider-vertical" />
+                            <li class="sitemap">
+                                <a id="ctl02_SitemapLink" accesskey="3" tabindex="1" title="L&auml;nk till hierarkisk &ouml;versikt av webbplatsens inneh&aring;ll. Snabbkommando: 3." href="sitemap">Webbkarta</a>
+                            </li>
+                            <li class="divider-vertical" />
+                            <li class="other-languages">
+
+                                <a href="109718">Other languages</a>
+                            </li>
+
+                        </ul>
+
+
+
+                        <div class="login-menu btn-group pull-right">
+                            <a class="btn btn-small" href='/my-pages'>
+                                <i class="icon-user"></i>
+                                <span>jongotlin</span>
+                            </a>
+
+                            <span class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                                <b class="caret"></b>
+                            </span>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a id="ctl02_ctl00_LoanLink" accesskey="0" tabindex="1" title="G&aring; till mina l&aring;n" href="my-pages/loans">Mina l&aring;n</a>
+                                </li>
+                                <li>
+                                    <a id="ctl02_ctl00_ReservationLink" accesskey="0" tabindex="1" title="G&aring; till mina reservationer" href="my-pages/reservations">Mina reservationer</a>
+                                </li>
+                                <li>
+                                    <a id="ctl02_ctl00_SignOutLink" accesskey="0" tabindex="1" title="Logga ut" href="logout?ReturnUrl=%2fmy-pages%2floans">Logga ut</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="functions">
+                            <li class="language-selector">
+
+                            </li>
+                            <li id="opening-hours">
+                                <a href="opening-hours">&Ouml;ppettider</a>
+                            </li>
+                            <li id="memorylist">
+                                <div class="part memory-list-overview  empty">
+                                    <a href="/my-pages/lists/memorylist" class="" title="Visa, redigera, spara och skicka din minneslista">
+                                        <h3 class="">
+                                            Minneslista
+                                        </h3>
+                                        <span class="list-count">Du har <span class="count">0</span> verk i minneslistan.</span>
+                                        <span class="list-count-numerical">0</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="sidhuvudbred"></div>
+            <div id="sidhuvud" class="clearfix">
+                <div id="logotyp" class="clearfix">
+                    <a tabindex="1" title="V&auml;lkommen till biblioteket. L&auml;nk till startsidan, snabbkommando: 1." href="start"><img src="Customer/Design/Images/ore-logo.png" alt="Logotypen f&ouml;r denna webbsida" />
+
+                        <span class="access-key-anchor">
+                Till startsidan
+            </span>
+                    </a>
+                </div>
+
+                <div id="container-top-menu" class="clearfix">
+
+                    <div class="navbar">
+                        <div class="container">
+                            <div class="nav-header">
+                                <ol class="navList">
+                                    <li class="has-children id-100130"><a href="vara-bibliotek">V&aring;ra bibliotek</a></li><li class="has-children id-100133"><a href="lana">Att l&aring;na</a></li><li class="has-children id-103714"><a href="hitta-medier">Hitta medier</a></li><li class="has-children id-111864"><a href="111864/sv/content-pages/barn-unga">Barn &amp; unga</a></li><li class="has-children id-100126"><a href="tipsartiklar">Tips &amp; artiklar</a></li><li class="has-children id-100129"><a href="p%C3%A5-g%C3%A5ng">P&aring; g&aring;ng</a></li><li class="has-children child-selected last id-14923"><a href="my-pages">Mina sidor</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="http://www.orebro.se"> <div id="ore-logo"></div> </a>
+            </div>
+
+            <div id="ram"></div>
+        </div>
+    </div>
+
+
+    <div class="interactive">
+        <div class="row">
+            <div id="mainsearch" class="span12">
+                <form id="SpeedSearchForm" class="form-search clearfix" method="get" action="search">
+                    <div class="search-query-wrapper">
+                        <label for="query" accesskey="4" title="Snabbkommando: 4">Sök</label>
+                        <input name="query" type="search" id="query" placeholder="S&ouml;k..." class="search-query" />
+                    </div>
+
+
+                    <div class="search-settings-container">
+                        <div id="search-settings">
+
+                            <div class="searchtype-container">
+                                <label for="searchtype" accesskey="5" title='Välj vilken del av webbplatsen du vill söka i.'>
+                                    Sök i
+                                </label>
+                                <div class="select-wrapper">
+                                    <select name="searchtype" id="searchtype">
+                                        <option value="Webbplats">Tips, artiklar, arrangemang</option>
+                                        <option selected="selected" value="Biblioteket">Bibliotekskatalogen</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="invisibility">
+                                <input name="sort" type="hidden" id="Interactive_ctl00_sort" value="PublishYear" />
+
+
+                            </div>
+
+                            <div class="CS_library-control">
+                                <label for="_d67e252a31384d84be15c19cb9963c5e">Välj bibliotek:</label>
+                                <div class="select-wrapper">
+                                    <select id="_d67e252a31384d84be15c19cb9963c5e" name="fLibId">
+                                        <option value='00000000-0000-0000-0000-000000000000'>Alla</option>
+                                        <option value='e27ae60a-2f6e-4557-b5ff-7f96883e695f'>Adolfsberg</option><option value='3b3b75ad-d8ae-4ace-9995-583d1e889946'>Baronbackarna</option><option value='827df573-5a5c-406d-86c0-497255b9910a'>Bokbilen</option><option value='4af9b712-3769-48ea-9e1e-c5eda302dcb6'>Brickebacken</option><option value='c7ad78f0-36d3-4419-90be-706b8e9e8203'>Garphyttan</option><option value='f9ffbf33-e58d-4792-a26e-eb1539f803e2'>Glanshammar</option><option value='724e94a5-e1d8-4462-8e7b-c3818855dbc8'>Haga</option><option value='a81ab0ce-08a9-4070-a85b-cde34e0ce796'>Hovsta</option><option value='8bb6af6f-4a5e-497d-9312-8b2450e48551'>Odensbacken</option><option value='9f9d3413-1b12-4961-989f-9a02e2f9128a'>Saxons hembygdssamling</option><option value='38121cef-7948-4086-8b38-e9022741fcb4'>Sjukhusbiblioteket</option><option value='3ece4d37-2b89-43d8-897c-7c72df01e3b7'>Stadsbiblioteket</option><option value='918d944f-ca61-4fe7-a4d7-d87fa0679dbe'>Talboken</option><option value='c8ecb887-b351-4576-ab39-e5613d157788'>Tegelbruket</option><option value='e2f3c879-2695-4b11-bc68-b52a83f6637d'>Varberga</option><option value='5660947d-26e0-4f4b-8f68-7a13fb37dd9f'>Vintrosa</option><option value='173f9cd8-b7cb-4ab9-abeb-ca613c6985e7'>Vivalla</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn" value="Sök" />
+                    <input type="hidden" name="pagesize" value="10" />
+                    <a class="extended-search" href="/extended-search">
+                        Utökad sökning
+                    </a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <a id="startpunkt"></a>
+
+    <div class="row master-content">
+        <div id="infospalt" class="span3">
+            <div id="navigation">
+
+                <ol class="navList">
+                    <li class="has-children child-selected last id-14923"><a href="my-pages">Mina sidor</a><ol class="navList">
+                        <li class="selected id-14924"><span>Mina l&aring;n</span></li><li class="id-14925"><a href="my-pages/reservations">Mina reservationer</a></li><li class="id-16253"><a href="my-pages/lists">Mina listor</a></li><li class="id-14926"><a href="my-pages/grades">Mina betyg</a></li><li class="id-14927"><a href="my-pages/tags">Mina nyckelord</a></li><li class="has-children id-14929"><a href="my-pages/settings">Mina inst&auml;llningar</a></li><li class="last id-15800"><a href="my-pages/cards">Mina l&aring;nekort</a></li>
+                    </ol></li>
+                </ol>
+
+
+            </div>
+        </div>
+
+        <div id="innehall" class="span6">
+            <a id="content-start" class="access-key-anchor" title="Genv&auml;g f&ouml;r snabb access till inneh&aring;llet.">Start f&ouml;r inneh&aring;ll</a>
+
+            <h1 class="content-header">
+                Nuvarande lån
+            </h1>
+
+            <p class="instruction">
+                Här kan du se dina lån och när de ska lämnas tillbaka. Genom att klicka på omlåneikonen kan du förlänga dina lån.
+                <br>
+                <br>
+                Här visas även eventuella skulder eller meddelanden från biblioteket.
+
+                Avgifter för försenade medier som ännu inte återlämnats visas inte här. Förseningsavgiften ser du först efter att återlämning skett.
+            </p>
+
+
+
+            <form method="post" action="/my-pages/loans" id="aspnetForm_0">
+                <div class="aspNetHidden">
+                    <input type="hidden" name="__EVENTTARGET" value="" />
+                    <input type="hidden" name="__EVENTARGUMENT" value="" />
+                    <input type="hidden" name="__VIEWSTATE" value="/wEPDwUKLTEzMDQzOTAyMA9kFgJmD2QWAmYPZBYMZg8VAQJzdmQCAQ9kFgoCDQ8WAh4HVmlzaWJsZWhkAg4PFgIfAGhkAg8PFQMEdHJ1ZQsnam9uZ290bGluJyYnNDk5YTZlOTQtMmU5Ni00YmI5LThkMTctYTM4ZjAwN2VhZTcxJ2QCEA8WAh4EVGV4dAW4AzxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij52YXIgX2dhcSA9IF9nYXEgfHwgW107X2dhcS5wdXNoKFsnX3NldEFjY291bnQnLCAnVUEtNTQ5NzY0ODgtMSddKTtfZ2FxLnB1c2goWydfdHJhY2tQYWdldmlldyddKTsoZnVuY3Rpb24oKSB7dmFyIGdhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0Jyk7IGdhLnR5cGUgPSAndGV4dC9qYXZhc2NyaXB0JzsgZ2EuYXN5bmMgPSB0cnVlO2dhLnNyYyA9ICgnaHR0cHM6JyA9PSBkb2N1bWVudC5sb2NhdGlvbi5wcm90b2NvbCA/ICdodHRwczovL3NzbCcgOiAnaHR0cDovL3d3dycpICsgJy5nb29nbGUtYW5hbHl0aWNzLmNvbS9nYS5qcyc7dmFyIHMgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgnc2NyaXB0JylbMF07IHMucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUoZ2EsIHMpO30pKCk7PC9zY3JpcHQ+ZAIRDxYCHwBoFgJmDxUBAjEwZAICDxUBMXBvcnRhbC0xNDkyMyBub2RlLTE0OTI0IG5vZGUtMTQ5MjMgbm9kZS0xNzIxIHB0LTBkAgMPFgIfAGhkAgcPZBYCAgEPZBYKBQVjdGwwNA8VAgZzZWFyY2gQU25hYmJrb21tYW5kbzogNGQFBWN0bDA1DxUBMFbDpGxqIHZpbGtlbiBkZWwgYXYgd2ViYnBsYXRzZW4gZHUgdmlsbCBzw7ZrYSBpLmQFCnNlYXJjaHR5cGUPEBYCHgtfIURhdGFCb3VuZGdkZGQFBWN0bDAyD2QWAgUNQ2F0YWxvZ1NlbGVjdA8PFgIfAGhkZAUFY3RsMDYPFQEEU8O2a2QCCQ9kFggCAw8PFgIfAmdkZAIND2QWAgIBEBYCHgZhY3Rpb24FDy9teS1wYWdlcy9sb2Fuc2QWBgIBDw8WBB4RVXNlckFjY2Vzc1Rva2VuSWQoKVhTeXN0ZW0uR3VpZCwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5JGNkMTc0ZjA2LTVmZDMtNDA3Mi04MGQwLWEzOGYwMDdlYWU5Yh8AaGQWAgUXQWNjZXNzVG9rZW5zUGxhY2VIb2xkZXIPZBYEAgEPEA8WAh8CZ2QQFQEdw5ZyZWJybyBCb29rLUlUICg5Mjk1ODkzMTgwMSkVASBjZDE3NGYwNjVmZDM0MDcyODBkMGEzOGYwMDdlYWU5YhQrAwFnFgFmZAIFDxYCHwEFJlbDpGxqIGzDpW5la29ydCBmw7ZyIGF0dCBzZSBkaW5hIGzDpW4uZAIDDw8WAh8EKCsEJGNkMTc0ZjA2LTVmZDMtNDA3Mi04MGQwLWEzOGYwMDdlYWU5YmQWAgUFY3RsMDAPFCsAAg8WBB8CZx4LXyFJdGVtQ291bnRmZGRkAgcPDxYCHwQoKwQkY2QxNzRmMDYtNWZkMy00MDcyLTgwZDAtYTM4ZjAwN2VhZTliZBYEBQVjdGwwMA8VASRjZDE3NGYwNi01ZmQzLTQwNzItODBkMC1hMzhmMDA3ZWFlOWJkBRBMb2Fuc1BsYWNlSG9sZGVyD2QWAgIBDxQrAAIPFgYfAmcfBQIKHwBnZGQWAmYPZBYWAgsPFgIfAGhkAg8PZBYOZg8VAgNvZGQAZAIBDxYEHgV0aXRsZQVBTMOkcyBtZXIgb20gIkJlcsOkdHRlbHNlciBvbSBlbiAoaW50ZSBzw6UgZ2xhbW9yw7ZzKSBUVi1zdGrDpHJuYSIeBGhyZWYFOHdvcmtfZGV0YWlscz93b3JraWQ9NWYzOTVhOTktYTQ3Yi00MTZmLWE1ZDQtYTYyNTAwZmEyYjJmFgJmDxUBREJlciZhdW1sO3R0ZWxzZXIgb20gZW4gKGludGUgcyZhcmluZzsgZ2xhbW9yJm91bWw7cykgVFYtc3RqJmF1bWw7cm5hZAIDDw9oZBYCZg9kFgQCAQ8WBB8BBTNCZXLDpHR0ZWxzZXIgb20gZW4gKGludGUgc8OlIGdsYW1vcsO2cykgVFYtc3Rqw6RybmEfAGhkAgMP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MDAkQ29udGVudCRDb250ZW50UGxhY2VIb2xkZXJfaW5uZWhhbGwkU2hvd0NhdGFsb2dNZXNzYWdlMSRjdGwwMA88KwAOAwhmDGYNAv////8PZAUXY3RsMDAkY3RsMDAkY3RsMDIkY3RsMDAPD2QCAWQFP2N0bDAwJGN0bDAwJEludGVyYWN0aXZlJGN0bDAwJGN0bDAyJENhdGFsb2dTZWxlY3QkQ2F0YWxvZ1NlbGVjdA9nZAUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgoFX2N0bDAwJGN0bDAwJENvbnRlbnQkQ29udGVudFBsYWNlSG9sZGVyX2lubmVoYWxsJEFudsOkbmRhcmVfX19NaW5hX2zDpW4xJGxzdExvYW5zJGN0cmwwJGNoa1JlbmV3BV9jdGwwMCRjdGwwMCRDb250ZW50JENvbnRlbnRQbGFjZUhvbGRlcl9pbm5laGFsbCRBbnbDpG5kYXJlX19fTWluYV9sw6VuMSRsc3RMb2FucyRjdHJsMSRjaGtSZW5ldwVfY3RsMDAkY3RsMDAkQ29udGVudCRDb250ZW50UGxhY2VIb2xkZXJfaW5uZWhhbGwkQW52w6RuZGFyZV9fX01pbmFfbMOlbjEkbHN0TG9hbnMkY3RybDIkY2hrUmVuZXcFX2N0bDAwJGN0bDAwJENvbnRlbnQkQ29udGVudFBsYWNlSG9sZGVyX2lubmVoYWxsJEFudsOkbmRhcmVfX19NaW5hX2zDpW4xJGxzdExvYW5zJGN0cmwzJGNoa1JlbmV3BV9jdGwwMCRjdGwwMCRDb250ZW50JENvbnRlbnRQbGFjZUhvbGRlcl9pbm5laGFsbCRBbnbDpG5kYXJlX19fTWluYV9sw6VuMSRsc3RMb2FucyRjdHJsNCRjaGtSZW5ldwVfY3RsMDAkY3RsMDAkQ29udGVudCRDb250ZW50UGxhY2VIb2xkZXJfaW5uZWhhbGwkQW52w6RuZGFyZV9fX01pbmFfbMOlbjEkbHN0TG9hbnMkY3RybDUkY2hrUmVuZXcFX2N0bDAwJGN0bDAwJENvbnRlbnQkQ29udGVudFBsYWNlSG9sZGVyX2lubmVoYWxsJEFudsOkbmRhcmVfX19NaW5hX2zDpW4xJGxzdExvYW5zJGN0cmw2JGNoa1JlbmV3BV9jdGwwMCRjdGwwMCRDb250ZW50JENvbnRlbnRQbGFjZUhvbGRlcl9pbm5laGFsbCRBbnbDpG5kYXJlX19fTWluYV9sw6VuMSRsc3RMb2FucyRjdHJsNyRjaGtSZW5ldwVfY3RsMDAkY3RsMDAkQ29udGVudCRDb250ZW50UGxhY2VIb2xkZXJfaW5uZWhhbGwkQW52w6RuZGFyZV9fX01pbmFfbMOlbjEkbHN0TG9hbnMkY3RybDgkY2hrUmVuZXcFX2N0bDAwJGN0bDAwJENvbnRlbnQkQ29udGVudFBsYWNlSG9sZGVyX2lubmVoYWxsJEFudsOkbmRhcmVfX19NaW5hX2zDpW4xJGxzdExvYW5zJGN0cmw5JGNoa1JlbmV3BS9jdGwwMCRjdGwwMCRDb250ZW50JFPDpHR0X2JldHlnX3ZpYV9hamF4MSRjdGwwMA8UKwAOZGRkZGRkZDwrAAUAAgVkZGRmAv////8PZAU/Y3RsMDAkY3RsMDAkSW50ZXJhY3RpdmUkY3RsMDAkY3RsMDIkTGlicmFyeVNlbGVjdCRMaWJyYXJ5U2VsZWN0DxQrAA5kZGRkZGRkPCsAEQACEWRkZGYC/////w9kBVBjdGwwMCRjdGwwMCRDb250ZW50JENvbnRlbnRQbGFjZUhvbGRlcl9pbm5laGFsbCRBbnbDpG5kYXJlX19fTWluYV9sw6VuMSRsc3RMb2Fucw8UKwAOZGRkZGRkZDwrAAoAAgpkZGRmAv////8PZJ4fb9WhcIEtdCE98zsszXZSYuQr" />
+                </div>
+
+
+
+
+
+
+
+
+                <div class="fees">
+
+                    <h3>
+                        Skulder
+                    </h3>
+                    <table id="debts" summary="Information about all existing debts the user has.">
+                        <thead>
+                        <tr>
+                            <th>Orsak</th>
+                            <th>Kommentar</th>
+                            <th>Belopp</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        <tr class="odd">
+                            <td>Förseningsavgift</td>
+                            <td>McManus, Sean, Raspberry Pi for dummies</td>
+                            <td>40,00 Kr</td>
+                        </tr>
+
+                        </tbody>
+
+                        <tfoot>
+                        <tr class="tabular-summary">
+                            <td colspan="2">&nbsp;</td>
+                            <td>
+                                40,00 kr
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">&nbsp;</td>
+                            <td>
+                                <a target='_blank' href='/betala' title='Betala dina skulder online (öppnas i nytt fönster)'>Betala online</a>
+                            </td>
+                        </tr>
+
+                        </tfoot>
+                    </table>
+
+                </div>
+
+                <div class="text">
+                    <input type="hidden" id="loan-token-id" name="loan-token-id" value='cd174f06-5fd3-4072-80d0-a38f007eae9b' />
+
+
+
+
+
+
+                    <div class="loans">
+
+                        <h3>
+                            Lån
+                        </h3>
+                        <table id="loans" summary="Information om användarens lån.">
+                            <thead>
+                            <tr>
+                                <th class="title">Titel</th>
+                                <th class="date">Återlämnas</th>
+                                <th class="function">
+                                    Låna om
+                                </th>
+
+                            </tr>
+                            </thead>
+
+                            <tfoot>
+
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                                <td>
+                                    <button id="select-all-loans" class="btn">
+                                        Välj alla
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                                <td><input type="submit" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$btnRenewLoans" value="L&aring;na om" id="btnRenewLoans" class="btn" /></td>
+                            </tr>
+                            </tfoot>
+
+                            <tbody>
+
+                            <tr class="odd">
+                                <td>
+                                    <a href="work_details?workid=5f395a99-a47b-416f-a5d4-a62500fa2b2f" title="L&auml;s mer om &quot;Ber&auml;ttelser om en (inte s&aring; glamor&ouml;s) TV-stj&auml;rna&quot;">
+                                        Ber&auml;ttelser om en (inte s&aring; glamor&ouml;s) TV-stj&auml;rna
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Russell, Rachel Ren&eacute;e
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl0$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_0" value="13317042" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl0$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_0" value="{&quot;Id&quot;:&quot;13317042&quot;,&quot;WorkId&quot;:&quot;5f395a99-a47b-416f-a5d4-a62500fa2b2f&quot;,&quot;WorkLocalId&quot;:&quot;455171&quot;,&quot;WorkAuthor&quot;:&quot;Russell, Rachel Ren&eacute;e&quot;,&quot;WorkTitle&quot;:&quot;Ber&auml;ttelser om en (inte s&aring; glamor&ouml;s) TV-stj&auml;rna&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om Ber&auml;ttelser om en (inte s&aring; glamor&ouml;s) TV-stj&auml;rna"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_0" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl0$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="even">
+                                <td>
+                                    <a href="work_details?workid=b19ac907-46db-4425-8aa6-52e4f9c073ef" title="L&auml;s mer om &quot;Betong - en gjuten hobby&quot;">
+                                        Betong - en gjuten hobby
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Hedengren, Sania
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl1$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_1" value="13317040" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl1$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_1" value="{&quot;Id&quot;:&quot;13317040&quot;,&quot;WorkId&quot;:&quot;b19ac907-46db-4425-8aa6-52e4f9c073ef&quot;,&quot;WorkLocalId&quot;:&quot;207720&quot;,&quot;WorkAuthor&quot;:&quot;Hedengren, Sania&quot;,&quot;WorkTitle&quot;:&quot;Betong - en gjuten hobby&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om Betong - en gjuten hobby"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_1" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl1$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="odd">
+                                <td>
+                                    <a href="work_details?workid=23d60c60-5378-4f93-b03b-c5b3344d0724" title="L&auml;s mer om &quot;H&auml;r kommer gr&auml;vskopan&quot;">
+                                        H&auml;r kommer gr&auml;vskopan
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Norlin, Arne
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl2$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_2" value="13317036" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl2$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_2" value="{&quot;Id&quot;:&quot;13317036&quot;,&quot;WorkId&quot;:&quot;23d60c60-5378-4f93-b03b-c5b3344d0724&quot;,&quot;WorkLocalId&quot;:&quot;27902&quot;,&quot;WorkAuthor&quot;:&quot;Norlin, Arne&quot;,&quot;WorkTitle&quot;:&quot;H&auml;r kommer gr&auml;vskopan&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om H&auml;r kommer gr&auml;vskopan"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_2" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl2$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="even">
+                                <td>
+                                    <a href="work_details?workid=595647c7-6021-4335-9536-cbfb4db0d620" title="L&auml;s mer om &quot;H&auml;r kommer rymdskeppet&quot;">
+                                        H&auml;r kommer rymdskeppet
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Norlin, Arne
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl3$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_3" value="13317037" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl3$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_3" value="{&quot;Id&quot;:&quot;13317037&quot;,&quot;WorkId&quot;:&quot;595647c7-6021-4335-9536-cbfb4db0d620&quot;,&quot;WorkLocalId&quot;:&quot;7758&quot;,&quot;WorkAuthor&quot;:&quot;Norlin, Arne&quot;,&quot;WorkTitle&quot;:&quot;H&auml;r kommer rymdskeppet&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om H&auml;r kommer rymdskeppet"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_3" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl3$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="odd">
+                                <td>
+                                    <a href="work_details?workid=63e807c3-6d9d-482c-b90f-67c614a902c8" title="L&auml;s mer om &quot;Lilla sim-skolan&quot;">
+                                        Lilla sim-skolan
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Hjort, Sofi
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl4$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_4" value="13317034" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl4$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_4" value="{&quot;Id&quot;:&quot;13317034&quot;,&quot;WorkId&quot;:&quot;63e807c3-6d9d-482c-b90f-67c614a902c8&quot;,&quot;WorkLocalId&quot;:&quot;312901&quot;,&quot;WorkAuthor&quot;:&quot;Hjort, Sofi&quot;,&quot;WorkTitle&quot;:&quot;Lilla sim-skolan&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om Lilla sim-skolan"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_4" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl4$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="even">
+                                <td>
+                                    <a href="work_details?workid=35152eba-8694-4bfd-a927-a62600d9d0b8" title="L&auml;s mer om &quot;Min bok om stora bilar och maskiner&quot;">
+                                        Min bok om stora bilar och maskiner
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Head, Honor
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl5$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_5" value="13268022" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl5$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_5" value="{&quot;Id&quot;:&quot;13268022&quot;,&quot;WorkId&quot;:&quot;35152eba-8694-4bfd-a927-a62600d9d0b8&quot;,&quot;WorkLocalId&quot;:&quot;455237&quot;,&quot;WorkAuthor&quot;:&quot;Head, Honor&quot;,&quot;WorkTitle&quot;:&quot;Min bok om stora bilar och maskiner&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om Min bok om stora bilar och maskiner"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_5" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl5$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="odd">
+                                <td>
+                                    <a href="work_details?workid=56a5c37e-8a80-47d5-9ee5-5b7c0863a35a" title="L&auml;s mer om &quot;Nytt &amp; kreativt med betong &amp; loppisfynd&quot;">
+                                        Nytt &amp; kreativt med betong &amp; loppisfynd
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Hedengren, Sania
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl6$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_6" value="13317041" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl6$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_6" value="{&quot;Id&quot;:&quot;13317041&quot;,&quot;WorkId&quot;:&quot;56a5c37e-8a80-47d5-9ee5-5b7c0863a35a&quot;,&quot;WorkLocalId&quot;:&quot;84626&quot;,&quot;WorkAuthor&quot;:&quot;Hedengren, Sania&quot;,&quot;WorkTitle&quot;:&quot;Nytt &amp; kreativt med betong &amp; loppisfynd&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om Nytt &amp; kreativt med betong &amp; loppisfynd"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_6" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl6$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="even">
+                                <td>
+                                    <a href="work_details?workid=c0bbc67a-14db-47c1-ac24-36d3f69f86e5" title="L&auml;s mer om &quot;N&auml;r prinsessor tar semester&quot;">
+                                        N&auml;r prinsessor tar semester
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Gustavsson, Per
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl7$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_7" value="13317048" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl7$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_7" value="{&quot;Id&quot;:&quot;13317048&quot;,&quot;WorkId&quot;:&quot;c0bbc67a-14db-47c1-ac24-36d3f69f86e5&quot;,&quot;WorkLocalId&quot;:&quot;85652&quot;,&quot;WorkAuthor&quot;:&quot;Gustavsson, Per&quot;,&quot;WorkTitle&quot;:&quot;N&auml;r prinsessor tar semester&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om N&auml;r prinsessor tar semester"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_7" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl7$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="odd">
+                                <td>
+                                    <a href="work_details?workid=d3851bea-c27d-43af-bc21-1239c09928eb" title="L&auml;s mer om &quot;Sj&ouml;r&ouml;varbok&quot;">
+                                        Sj&ouml;r&ouml;varbok
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: Hellsing, Lennart
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl8$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_8" value="13317033" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl8$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_8" value="{&quot;Id&quot;:&quot;13317033&quot;,&quot;WorkId&quot;:&quot;d3851bea-c27d-43af-bc21-1239c09928eb&quot;,&quot;WorkLocalId&quot;:&quot;28461&quot;,&quot;WorkAuthor&quot;:&quot;Hellsing, Lennart&quot;,&quot;WorkTitle&quot;:&quot;Sj&ouml;r&ouml;varbok&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om Sj&ouml;r&ouml;varbok"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_8" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl8$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            <tr class="even">
+                                <td>
+                                    <a href="work_details?workid=868c9046-7120-452e-aa79-e65cc5c39628" title="L&auml;s mer om &quot;Super-Charlie&quot;">
+                                        Super-Charlie
+                                    </a>
+
+
+                                    <span class="work-title">
+
+                                        </span>
+                                    <span class="work-author">
+                                            Av: L&auml;ckberg, Camilla
+                                        </span>
+
+                                </td>
+
+                                <td>
+                                    2017-08-22
+                                </td>
+
+                                <td class="renew-cell">
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl9$hidLoanId" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoanId_9" value="13317035" />
+                                    <input type="hidden" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl9$hidLoan" id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_hidLoan_9" value="{&quot;Id&quot;:&quot;13317035&quot;,&quot;WorkId&quot;:&quot;868c9046-7120-452e-aa79-e65cc5c39628&quot;,&quot;WorkLocalId&quot;:&quot;12124&quot;,&quot;WorkAuthor&quot;:&quot;L&auml;ckberg, Camilla&quot;,&quot;WorkTitle&quot;:&quot;Super-Charlie&quot;,&quot;ReturnDate&quot;:&quot;\/Date(1503352800000)\/&quot;,&quot;Reminders&quot;:0,&quot;CatalogId&quot;:&quot;bde9acd5-0b22-494d-ad8f-b83ba94aac59&quot;,&quot;Shelf&quot;:null,&quot;IsRenewable&quot;:true,&quot;Status&quot;:null}" />
+
+                                    <span title="L&aring;na om Super-Charlie"><input id="Content_ContentPlaceHolder_innehall_Användare___Mina_lån1_chkRenew_9" type="checkbox" name="ctl00$ctl00$Content$ContentPlaceHolder_innehall$Användare___Mina_lån1$lstLoans$ctrl9$chkRenew" /></span>
+                                </td>
+
+
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <script type="text/javascript">
+                        LabelHandler.initialize('MinaSidor');
+                        $(function () {
+                            $("#btnRenewLoans").attr("disabled", "disabled");
+                            $("#loans").find(":checkbox").change(function (e) {
+                                if ($("#loans").find(":checkbox:checked").length > 0)
+                                    $("#btnRenewLoans").removeAttr("disabled");
+                                else
+                                    $("#btnRenewLoans").attr("disabled", "disabled");
+                            });
+
+                            $("#select-all-loans").toggle(
+                                function () {
+                                    $(this).html(LabelHandler.MinaSidor.MyLoans_RenewLoans_DeselectAll);
+                                    $("#loans").find(":checkbox").attr("checked", "checked");
+                                    $("#btnRenewLoans").removeAttr("disabled");
+                                }, function () {
+                                    $(this).html(LabelHandler.MinaSidor.MyLoans_RenewLoans_SelectAll);
+                                    $("#loans").find(":checkbox").removeAttr("checked");
+                                    $("#btnRenewLoans").attr("disabled", "disabled");
+
+                                }
+                            );
+                        });
+                    </script>
+
+                </div>
+
+                <div class="aspNetHidden">
+
+                    <input type="hidden" name="__VIEWSTATEGENERATOR" value="1E6BC013" />
+                    <input type="hidden" name="__EVENTVALIDATION" value="/wEWIwLY0au+BQL/+OneAgLPj923DALds4jCBAKH+azRCAKCno/mBQKh5IOHBALzgZn0CwKCnsuXCQKh5L+4BwLzgdWDCAKCnrfcCQKh5Kv9BwLzgcH+CgKCntO0DQKh5MfVCwLzgf09AoKev/kNAqHks5oMAvOB6bgDAoKe+6oBAqHk78sPAvOBpcgPAoKe5+8BAqHk2xAC84GRwwICgp7DqgQCoeS3ywIC84HNlwICgp7vnwYCoeTjwAQC84H55A0Cgp6r0QkCoeSf8gcC84G19An9Pi2m/z6BenlqfbfV+17d+Ewn0w==" />
+                </div></form>
+
+        </div>
+
+        <div id="sidspalt" class="span3">
+            <div id="notifications">
+                <!-- area used for different kind of notifications -->
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type='text/javascript' src='Admin/Delade resurser/Script/rateWork.js'></script>
+
+
+    <div id="dialog" title='Mitt betyg och omdöme' style="display: none;">
+
+                    <span id="dialog_ratings">
+
+                    <input class="auto-submit-star" value='1' type="radio" name="star1"/>
+
+                    <input class="auto-submit-star" value='2' type="radio" name="star1"/>
+
+                    <input class="auto-submit-star" value='3' type="radio" name="star1"/>
+
+                    <input class="auto-submit-star" value='4' type="radio" name="star1"/>
+
+                    <input class="auto-submit-star" value='5' type="radio" name="star1"/>
+
+                    </span>
+
+        <div>
+            <h3>Omdöme</h3><textarea rows="5" cols="36"></textarea>
+        </div>
+    </div>
+
+
+    <div class="row" id="footer">
+
+
+        <div id="sidfot">
+            <div class="footer-container">
+                <div class="social-fb">
+                    <a href="https://www.facebook.com/orebrostadsbibliotek?ref=ts&v=wall">
+                        <img src="Customer/Design/Images/icon-facebook-36x36.png">
+                    </a>
+                </div>
+                <div class="social-tw">
+                    <a href="https://twitter.com/orebrobibliotek">
+                        <img src="Customer/Design/Images/icon-twitter-36x36.png">
+                    </a>
+                </div>
+                <div class="subrcribe-newsletter">
+                    <a href="http://www.com-hit.com/ch/v1/customer/QuestionsCC/edit.asp?did=kjqqilikm&tid=&first_time_reg_questions=true&epost=&header=">Anmäl till nyhetsbrev</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
