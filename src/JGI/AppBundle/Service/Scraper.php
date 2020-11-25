@@ -33,7 +33,7 @@ class Scraper
     {
         $crawler = $this->client->request('GET', 'http://bibliotek.orebro.se/login');
         $form = $crawler->selectButton('Logga in')->form();
-        $this->client->submit($form, ['username' => $username, 'password' => $password]);
+        $this->client->submit($form, ['Username' => $username, 'Password' => $password]);
 
         $crawler = $this->client->request('GET', 'http://bibliotek.orebro.se/my-pages/loans');
 
