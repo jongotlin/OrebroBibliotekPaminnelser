@@ -35,20 +35,20 @@ class Scraper
         $form = $crawler->selectButton('Logga in')->form();
         $this->client->submit($form, ['Username' => $username, 'Password' => $password]);
 
-        $crawler = $this->client->request('GET', 'http://bibliotek.orebro.se/my-pages/loans');
+        $this->client->request('GET', 'http://bibliotek.orebro.se/api/loans');
 
-        $books = $crawler->filter('#loans tbody tr')->each(function(Crawler $node) {
+        $content = (string)$this->client->getResponse()->getContent();
+
+        $array = json_decode($content, true);
+
+        $books = [];
+        foreach ($array as $item) {
             $book = new Book();
-            if ($node->filter('td a')->count()) {
-                $book->setTitle(trim($node->filter('td a')->text()));
-            }
-            if ($node->filter('td span.work-author')->count()) {
-                $book->setAuthor(substr(trim($node->filter('td span.work-author')->text()), 4));
-            }
-            $book->setReturnDate(new \DateTime(trim($node->filter('td:nth-child(2)')->text())));
-
-            return $book;
-        });
+            $book->setTitle($item['workTitle']);
+            $book->setAuthor($item['workAuthor']);
+            $book->setReturnDate(new \DateTime($item['returnDate']));
+            $books[] = $book;
+        }
 
         if ($books) {
             usort($books, function(Book $a, Book $b) {
